@@ -192,8 +192,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generateFruitBorder() {
       fruitBorderContainer.innerHTML = "";
-      screenWidth = window.innerWidth;
-      screenHeight = window.innerHeight;
+      screenWidth = window.innerWidth + 16;
+      screenHeight = window.innerHeight + 10;
 
       const borderPadding = fruitSize * 1.5; // Ensure space around game area
 
@@ -216,9 +216,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const startButton = document.getElementById("start-button");
 
   startButton.addEventListener("click", () => {
-      gameContainer.style.width = "min(80vw, 600px)"; /* Expand Game */
-      gameContainer.style.top = "calc(50% + 20px)"; /* Move Down */
+
+      gameContainer.style.width = "min(100vw - 170px, 600px)"; /* Expand Game */
+      gameContainer.style.height = "min(100vh - 240px, 600px)"; /* Expand Game */
       gameGrid.style.display = "grid"; /* Show Grid */
+      document.getElementById("header").style.display = "none"; /* Show Info */
       generateFruitBorder(); /* Adjust Border */
   });
 });
